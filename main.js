@@ -89,10 +89,10 @@ const computerBar = {
 };
 
 function checkScore() {
-    if (playerBar.score === 1) {
+    if (playerBar.score === 10) {
         gameOver("You Win:)","green","black");
     }
-    else if (computerBar.score === 1) {
+    else if (computerBar.score === 10) {
         gameOver("Computer Win:))","red","white");
     }
 }
@@ -130,4 +130,7 @@ function gameOver(message,backgroundColor,messagecolor) {
     const circle = document.getElementById("circle");
     game.removeChild(line);
     game.removeChild(circle);
+    playerBar.elem.remove();
+    computerBar.elem.remove();
+    ball.elem.remove();
 }
