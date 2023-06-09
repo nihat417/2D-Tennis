@@ -8,8 +8,8 @@ const ball = {
     color: 'red',
     x: 500,
     y: 500,
-    dx: -5,
-    dy: 5,
+    dx: -8,
+    dy: 8,
     show() {
         this.elem.style.width = this.w + 'px'
         this.elem.style.height = this.h + 'px'
@@ -32,6 +32,11 @@ const ball = {
         } else if (this.x > 760) {
             playerScore.innerHTML = `Player: ${playerBar.score+=10}`;
             this.dx *= -1;
+        }
+
+        if (Math.random() < 0.01) {
+            this.dx = Math.random() < 0.5 ? this.dx+=0.05 : this.dx;
+            this.dy = Math.random() < 0.5 ? this.dy+=0.05 : this.dy;
         }
 
         this.x += this.dx;
@@ -89,10 +94,10 @@ const computerBar = {
 };
 
 function checkScore() {
-    if (playerBar.score === 10) {
+    if (playerBar.score === 30) {
         gameOver("You Win:)","green","black");
     }
-    else if (computerBar.score === 10) {
+    else if (computerBar.score === 30) {
         gameOver("Computer Win:))","red","white");
     }
 }
